@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - RoutePlanner</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Общие стили (такие же как на главной) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            cursor: pointer;
+            border: none;
+        }
+        
+        
+        
+        .auth-buttons button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .login-btn {
+            background: transparent;
+            color: #34a853;
+            margin-right: 10px;
+        }
+        
+        .signup-btn {
+            background: #34a853;
+            color: white;
+        }
+        
+        /* Основной контент страницы входа */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+        }
+        
+        .auth-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px;
+            width: 100%;
+            max-width: 450px;
+            transition: transform 0.3s ease;
+        }
+        
+        .auth-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .auth-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .auth-form {
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #34a853;
+            box-shadow: 0 0 0 3px rgba(52, 168, 83, 0.1);
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .remember-me input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .forgot-password {
+            color: #4285f4;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .forgot-password:hover {
+            color: #34a853;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #34a853;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-bottom: 25px;
+        }
+        
+        .submit-btn:hover {
+            background: #2d8c47;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        
+        .divider span {
+            background: white;
+            padding: 0 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .social-btn.google {
+            background: #fff;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .social-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .auth-footer p {
+            color: #666;
+        }
+        
+        .auth-footer a {
+            color: #34a853;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .auth-footer a:hover {
+            color: #2d8c47;
+        }
+        
+        /* Подвал */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #34a853;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            
+            
+            .auth-card {
+                padding: 30px;
+                margin: 20px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .auth-card {
+                padding: 25px;
+            }
+            
+            .auth-header h1 {
+                font-size: 28px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href='index.html' class="logo">Route<span>Planner</span></a>
+                
+                <!-- Мобильные кнопки авторизации (видны только на мобильных) -->
+               
+                <div class="auth-buttons mobile-auth" >
+                    <a href= "voiti.html">Войти</a>
+                    <a href= "regis.html">Рег</a>
+                </div>
+                
+                <!-- Бургер меню (видны только на мобильных) -->
+                <button class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Навигация - на десктопе горизонтальная, на мобильных скрыта -->
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html">Направления</a></li>
+                    <li><a href="index.html">Планировщик</a></li>
+                    <li><a href="index.html">Отзывы</a></li>
+                    <li><a href="index.html">Блог</a></li>
+                </ul>
+                
+                <!-- Десктопные кнопки авторизации -->
+                <div class="auth-buttons">
+                    <a href= "voiti.html">Войти</a>
+                    <a href= "regis.html">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Вход в аккаунт</h1>
+                    <p>Войдите, чтобы продолжить планирование путешествий</p>
+                </div>
+                
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="ваш@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <div class="password-container">
+                            <input type="password" id="password" class="form-input" placeholder="Введите пароль" required>
+                            <button type="button" class="toggle-password">Показать</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <span>Запомнить меня</span>
+                        </label>
+                        <a href="#" class="forgot-password">Забыли пароль?</a>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Войти в аккаунт</button>
+                    
+                    <div class="divider">
+                        <span>Или войдите через</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Еще нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>RoutePlanner</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресса</a></li>
+                        <li><a href="#">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Центр поддержки</a></li>
+                        <li><a href="#">Частые вопросы</a></li>
+                        <li><a href="#">Связаться с нами</a></li>
+                        <li><a href="#">Сообщить о проблеме</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Для путешественников</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Блог о путешествиях</a></li>
+                        <li><a href="#">Советы и рекомендации</a></li>
+                        <li><a href="#">Сообщества</a></li>
+                        <li><a href="#">Специальные предложения</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Партнерам</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Для бизнеса</a></li>
+                        <li><a href="#">Для гидов</a></li>
+                        <li><a href="#">Для отелей</a></li>
+                        <li><a href="#">Рекламные возможности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RoutePlanner. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript для показа/скрытия пароля
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? 'Показать' : 'Скрыть';
+            });
+            
+            // Обработка формы
+            const loginForm = document.querySelector('.auth-form');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Здесь должна быть реальная логика авторизации
+                console.log('Вход:', { email, password });
+                
+                // Симуляция успешного входа
+                alert('Вход выполнен успешно! Перенаправление на главную страницу...');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

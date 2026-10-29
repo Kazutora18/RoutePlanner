@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoutePlanner - Планирование и оптимизация туристических маршрутов</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+        <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href='#1' class="logo">Route<span>Planner</span></a>
+                
+                <!-- Мобильные кнопки авторизации (видны только на мобильных) -->
+               
+                <div class="auth-buttons mobile-auth" >
+                    <a href= "voiti.html">Войти</a>
+                    <a href= "regis.html">Рег</a>
+                </div>
+                
+                <!-- Бургер меню (видны только на мобильных) -->
+                <button class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Навигация - на десктопе горизонтальная, на мобильных скрыта -->
+                <ul class="nav-links">
+                    <li><a href="#1">Главная</a></li>
+                    <li><a href="#3">Направления</a></li>
+                    <li><a href="#4">Планировщик</a></li>
+                    <li><a href="#5">Отзывы</a></li>
+                    <li><a href="#6">Блог</a></li>
+                </ul>
+                
+                <!-- Десктопные кнопки авторизации -->
+                <div class="auth-buttons">
+                    <a href= "voiti.html">Войти</a>
+                    <a href= "regis.html">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero" id="1">
+        <div class="container">
+            <h1>Планируйте путешествия с умом</h1>
+            <p>Создавайте оптимальные маршруты, экономьте время и деньги, открывайте лучшие достопримечательности</p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Куда вы хотите поехать?">
+                <button class="search-btn">Найти маршрут</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности -->
+    <section class="features" id="2">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбирают наш планировщик</h2>
+                <p>Мы используем передовые алгоритмы для создания идеальных маршрутов</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Интеллектуальное планирование</h3>
+                    <p>Автоматически создаем оптимальные маршруты с учетом ваших предпочтений и ограничений по времени.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Экономия времени</h3>
+                    <p>Сокращаем время на планирование и перемещение между достопримечательностями до 40%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Снижение расходов</h3>
+                    <p>Оптимизируем маршруты для минимизации транспортных и других затрат.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные направления -->
+    <section class="destinations" id="3">
+        <div class="container">
+            <div class="section-title">
+                <h2>Популярные направления</h2>
+                <p>Откройте для себя лучшие места для путешествий</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('/img/parige.png');"></div>
+                    <div class="destination-info">
+                        <h3>Париж, Франция</h3>
+                        <p>Романтический маршрут по главным достопримечательностям</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('/img/rim.png');"></div>
+                    <div class="destination-info">
+                        <h3>Рим, Италия</h3>
+                        <p>Путешествие сквозь века по древним памятникам</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('/img/iaponia.png');"></div>
+                    <div class="destination-info">
+                        <h3>Киото, Япония</h3>
+                        <p>Традиционная культура и современные технологии</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('/img/new-erk.png');"></div>
+                    <div class="destination-info">
+                        <h3>Нью-Йорк, США</h3>
+                        <p>Невероятный микс культур и достопримечательностей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="how-it-works" id="4">
+        <div class="container">
+            <div class="section-title">
+                <h2>Как работает наш планировщик</h2>
+                <p>Всего 3 простых шага к идеальному путешествию</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Выберите направление</h3>
+                    <p>Укажите город или страну, которую хотите посетить</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Настройте параметры</h3>
+                    <p>Укажите интересы, бюджет и продолжительность поездки</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Получите маршрут</h3>
+                    <p>Система создаст оптимальный план с достопримечательностями</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials" id="5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Что говорят наши пользователи</h2>
+                <p>Тысячи путешественников уже оценили преимущества нашего сервиса</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "С помощью RoutePlanner мы смогли посмотреть в 2 раза больше достопримечательностей за те же 5 дней в Барселоне. Алгоритм действительно работает!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Мария Иванова</h4>
+                            <p>Путешественница</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Как часто бывает, времени было мало, а хотелось увидеть максимум. Этот сервис сэкономил нам кучу времени на планировании и помог создать идеальный маршрут."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Алексей Петров</h4>
+                            <p>Блогер-путешественник</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Раньше я тратил дни на планирование поездок. Теперь с RoutePlanner получаю готовый оптимизированный маршрут за пару минут. Невероятно удобно!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Дмитрий Смирнов</h4>
+                            <p>Частый путешественник</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="cta" id="6">
+        <div class="container">
+            <h2>Начните планировать свое идеальное путешествие</h2>
+            <p>Присоединяйтесь к тысячам довольных пользователей, которые уже оценили преимущества нашего сервиса</p>
+            <button class="cta-btn">Создать маршрут бесплатно</button>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>RoutePlanner</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресса</a></li>
+                        <li><a href="#">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Центр поддержки</a></li>
+                        <li><a href="#">Частые вопросы</a></li>
+                        <li><a href="#">Связаться с нами</a></li>
+                        <li><a href="#">Сообщить о проблеме</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Для путешественников</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Блог о путешествиях</a></li>
+                        <li><a href="#">Советы и рекомендации</a></li>
+                        <li><a href="#">Сообщества</a></li>
+                        <li><a href="#">Специальные предложения</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Партнерам</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Для бизнеса</a></li>
+                        <li><a href="#">Для гидов</a></li>
+                        <li><a href="#">Для отелей</a></li>
+                        <li><a href="#">Рекламные возможности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RoutePlanner. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
